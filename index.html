@@ -9,10 +9,26 @@
   <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
   <script>
-    ReactDOM.render(
-      React.createElement('h1', null, 'Hello React!'),
-      document.getElementById('root')
+    const root = document.getElementById('root')
+
+    const Title = React.createElement(
+      'h3',
+      {
+        className: 'title'
+      },
+      'React Tutorial'
     )
+
+    const Image = React.createElement(
+      'img',
+      {
+        src: 'https://blog.algolia.com/wp-content/uploads/2015/11/React_illo_final_720x400.png'
+      }
+    )
+
+    const App = React.createElement('div', null, Title, Image)
+
+    ReactDOM.render(App, root)
   </script>
 </body>
 </html>
