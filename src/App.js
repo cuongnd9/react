@@ -4,12 +4,27 @@ import './App.css';
 import TodoItem from './components/TodoItem'
 
 class App extends Component {
+  constructor() {
+    super()
+    this.todoItems = [
+      'Happy New Year',
+      'Learn React',
+      'Learn Express',
+      'Learn Mongo',
+      'Learn Node',
+      'Learn TypeScript',
+      'Learn Python'
+    ]
+  }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <TodoItem title='Happy New Year!' />
+          {
+            this.todoItems.map((item, index) => <TodoItem key={ index } title={ item } />)
+          }
           <p>
             Edit <code>src/App.js</code> and save to reload.
           </p>
