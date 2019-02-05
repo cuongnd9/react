@@ -7,13 +7,13 @@ class App extends Component {
   constructor() {
     super()
     this.todoItems = [
-      'Happy New Year',
-      'Learn React',
-      'Learn Express',
-      'Learn Mongo',
-      'Learn Node',
-      'Learn TypeScript',
-      'Learn Python'
+      { title: 'Learn Go', status: true },
+      { title: 'Learn React', status: false },
+      { title: 'Learn Express', status: true },
+      { title: 'Learn Mongo', status: false },
+      { title: 'Learn Node', status: false },
+      { title: 'Learn TypeScript', status: true },
+      { title: 'Learn Python', status: false }
     ]
   }
 
@@ -23,19 +23,10 @@ class App extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           {
-            this.todoItems.map((item, index) => <TodoItem key={ index } title={ item } />)
+            this.todoItems.map((item, index) => 
+              <TodoItem key={ index } item={ item } />
+            )
           }
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
         </header>
       </div>
     );

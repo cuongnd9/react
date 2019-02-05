@@ -1,0 +1,12 @@
+.TodoItem {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  font-size: 36px;
+  color: tomato;
+}
+
+.TodoItem-complete {
+  text-decoration: line-through;
+  opacity: .3;
+}
