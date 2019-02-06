@@ -21,13 +21,16 @@ class App extends Component {
 
   onItemClicked = (value) => {
     const { todoItems } = this.state
-    this.state.todoItems.forEach(item => {
-      if (item === value) {
-        item.isComplete = !item.isComplete
-        this.setState({ todoItems })
-        return
-      }
-    })
+    const index = todoItems.indexOf(value)
+    
+    this.setState({ todoItems: [
+      ...todoItems.slice(0, index),
+      {
+        ...value,
+        isComplete: !value.isComplete
+      },
+      ...todoItems.slice(index + 1)
+    ]})
   }
 
   render() {
@@ -35,8 +38,13 @@ class App extends Component {
       <div className="App">
         <img src={logo} className="App-logo" alt="logo" />
           {
-            this.state.todoItems.length > 0 && this.state.todoItems.map((item, index) => 
-              <TodoItem key={ index } item={ item } onClick={this.onItemClicked} />
+            this.state.todoItems.length > 0 
+            && this.state.todoItems.map((item, index) =>
+              <TodoItem 
+                key={ index } 
+                item={ item } 
+                onClick={this.onItemClicked} 
+              />
             )
           }
           {

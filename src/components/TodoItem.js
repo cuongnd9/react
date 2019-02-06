@@ -12,7 +12,10 @@ class TodoItem extends Component {
       }
     )
     return (
-      <div onClick={onClick.bind(this, this.props.item)} className={className}>
+      <div 
+        onClick={onClick.bind(this, this.props.item)} 
+        className={className}
+      >
         <p>{this.props.item.title}</p>
       </div>
     )
