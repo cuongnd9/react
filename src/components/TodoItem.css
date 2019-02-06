@@ -4,6 +4,7 @@
     sans-serif;
   font-size: 36px;
   color: tomato;
+  cursor: pointer;
 }
 
 .TodoItem-complete {

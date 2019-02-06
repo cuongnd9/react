@@ -4,15 +4,15 @@ import './TodoItem.css'
 
 class TodoItem extends Component {
   render() {
-    const { item } = this.props
+    const { item, onClick } = this.props
     const className = classNames(
       'TodoItem',
       {
-        'TodoItem-complete': item.status
+        'TodoItem-complete': item.isComplete
       }
     )
     return (
-      <div  className={className}>
+      <div onClick={onClick.bind(this, this.props.item)} className={className}>
         <p>{this.props.item.title}</p>
       </div>
     )

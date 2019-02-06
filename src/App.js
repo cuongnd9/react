@@ -4,17 +4,30 @@ import './App.css';
 import TodoItem from './components/TodoItem'
 
 class App extends Component {
-  constructor() {
-    super()
-    this.todoItems = [
-      { title: 'Learn Go', status: true },
-      { title: 'Learn React', status: false },
-      { title: 'Learn Express', status: true },
-      { title: 'Learn Mongo', status: false },
-      { title: 'Learn Node', status: false },
-      { title: 'Learn TypeScript', status: true },
-      { title: 'Learn Python', status: false }
-    ]
+  constructor(props) {
+    super(props)
+    this.state = {
+      todoItems: [
+        { title: 'Learn Go', isComplete: true },
+        { title: 'Learn React', isComplete: false },
+        { title: 'Learn Express', isComplete: true },
+        { title: 'Learn Mongo', isComplete: false },
+        { title: 'Learn Node', isComplete: false },
+        { title: 'Learn TypeScript', isComplete: true },
+        { title: 'Learn Python', status: false }
+      ]
+    }
+  }
+
+  onItemClicked = (value) => {
+    const { todoItems } = this.state
+    this.state.todoItems.forEach(item => {
+      if (item === value) {
+        item.isComplete = !item.isComplete
+        this.setState({ todoItems })
+        return
+      }
+    })
   }
 
   render() {
@@ -22,12 +35,12 @@ class App extends Component {
       <div className="App">
         <img src={logo} className="App-logo" alt="logo" />
           {
-            this.todoItems.length > 0 && this.todoItems.map((item, index) => 
-              <TodoItem key={ index } item={ item } />
+            this.state.todoItems.length > 0 && this.state.todoItems.map((item, index) => 
+              <TodoItem key={ index } item={ item } onClick={this.onItemClicked} />
             )
           }
           {
-            this.todoItems.length === 0 && 'Nothing'
+            this.state.todoItems.length === 0 && 'Nothing'
           }
       </div>
     );
