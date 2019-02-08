@@ -22,9 +22,8 @@ class App extends Component {
 
   async handleItemClicked(value) {
     const { todosFilter, todoItems } = this.state
-    const index = todosFilter.indexOf(value)
-    const _index = todoItems.indexOf(value)
-    
+    const index = this.findIndex(todosFilter, value)
+    const _index = this.findIndex(todoItems, value)
     await this.setState({
       todosFilter: [
         ...todosFilter.slice(0, index),
@@ -45,6 +44,17 @@ class App extends Component {
     })
 
     localStorage.setItem('todos', JSON.stringify(this.state.todoItems))
+  }
+
+  findIndex(items, item) {
+    let index = -1
+    items.forEach((element, i) => {
+      if (element.title === item.title 
+      && element.isComplete === item.isComplete) {
+        index = i
+      }
+    })
+    return index
   }
 
   handleValueChange(e) {
