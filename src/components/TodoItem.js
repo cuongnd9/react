@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
 import classNames from 'classnames'
 import './TodoItem.css'
 
@@ -20,6 +22,14 @@ class TodoItem extends Component {
       </div>
     )
   }
+}
+
+TodoItem.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    isComplete: PropTypes.bool.isRequired
+  }),
+  onClick: PropTypes.func.isRequired
 }
 
 export default TodoItem
