@@ -13,3 +13,4 @@
 - [Higher-Order Components](https://codesandbox.io/s/kkl99y0on3)
 - [Context API 1](https://codesandbox.io/s/48p9z458jw)
 - [Context API 2](https://codesandbox.io/s/mq88q9479p)
+- [Context API 3](https://codesandbox.io/s/xlw7p397ko)
