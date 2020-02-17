@@ -1,4 +1,4 @@
-# React Starter
+# react
 
 ⚛️🌲 Getting Started with React.
 
